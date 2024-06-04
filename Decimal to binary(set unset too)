@@ -1,0 +1,26 @@
+
+#include<bits/stdc++.h>
+using namespace std;
+void printbinary(){
+for(int i=10;i>=0;--i){
+cout<<(num>>i)&1)
+   }
+cout<<endl;
+}
+int main(){
+     printbinary(9);
+     if(a&(1<<i) != 0) cout<<"set bit"<<endl;
+     else cout<<"not set bit"<<endl;
+     //BIT SET
+     printbinary(a | 1<<i);
+     
+     //BIT UNSET
+     printbinary( a & ( ~(1<<i)));
+
+    //TOGGLE BIT
+     printbinary(a ^ (1<<i));
+
+    //COUNT SETBIT
+      cout<<__builtin_popcount(a)<<endl;
+      cout<<__builtin_popcountll(a)<<endl;
+}
