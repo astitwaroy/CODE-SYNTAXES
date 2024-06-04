@@ -1,0 +1,42 @@
+unordered_map<int, int> primeFactors(int a) {
+    unordered_map<int, int> fact;
+    for (int i = 2; i * i <= a; ++i) {
+        while (a % i == 0) {
+            ++fact[i];
+            a /= i;
+        }
+    }
+    if (a > 1) {
+        ++fact[a];
+    }
+    return fact;
+}
+ 
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+    int a;
+    cin >> a;
+    vector<int> A(a);
+    for (int i = 0; i < a; ++i) {
+        cin >> A[i];
+    }
+ 
+    unordered_map<int, int> factorCounts;
+    for (int i = 0; i < a; ++i) {
+        unordered_map<int, int> factors = primeFactors(A[i]);
+        for (auto& factor : factors) {
+            factorCounts[factor.first] = max(factorCounts[factor.first], factor.second);
+        }
+    }
+ 
+    long long ans = 0;
+    for (auto& factor : factorCounts) {
+        ans += (long long)factor.first * factor.second;
+    }
+ 
+    cout << ans << endl;
+ 
+    return 0;
+}
+    
